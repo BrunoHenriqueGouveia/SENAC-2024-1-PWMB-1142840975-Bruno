@@ -1,0 +1,51 @@
+body {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: whitesmoke;
+}
+
+.conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    background:  rgba(244, 96, 96, 0.999);
+    width: 500px;
+    height: 700px;
+    border-radius: 5px;
+}
+
+.conteudo2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: whitesmoke;
+    width: 450px;
+    height: 600px;
+    border-radius: 20px;
+}
+
+.formulario {
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 1px solid rgb(216, 213, 213);
+    display: none;
+}
+
+.resposta {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}

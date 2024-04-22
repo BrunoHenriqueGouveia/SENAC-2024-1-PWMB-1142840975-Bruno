@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: whitesmoke;
+}
+.conteudo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    background:  rgba(244, 96, 96, 0.999);
+    width: 500px;
+    height: 740px;
+    border-radius: 5px;
+}
