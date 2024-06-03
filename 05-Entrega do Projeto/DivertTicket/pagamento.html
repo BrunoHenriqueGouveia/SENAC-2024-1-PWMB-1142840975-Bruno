@@ -75,10 +75,10 @@
 
             const urlParams = new URLSearchParams(window.location.search);
             const dados = urlParams.get('dados');
-
+console.log(dados);
 
             let palavras = dados.split(";");
-            let nomeEvento = palavras[0];
+            let nomeEvento = palavras[0].trim();
             let tipo = palavras[1];
             let totalIngresso = palavras[2];
             let valor = palavras[3];
