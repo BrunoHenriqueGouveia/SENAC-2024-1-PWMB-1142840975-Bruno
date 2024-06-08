@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+
+            text-align: center;
+            color: #4a4a4a;
+        }
+
+        #loginForm {
+            background-color: #fff;
+            border-radius: 8px;
+            width: 500px;
+            padding: 20px;
+            margin: 0 auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #loginForm label {
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+
+        #loginForm input[type="email"],
+        #loginForm input[type="password"] {
+            width: 478px;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #loginForm input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #loginForm input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <form id="loginForm">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" required><br>
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" required><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

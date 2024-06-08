@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #tabelaCarrinho {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        #tabelaCarrinho th,
+        #tabelaCarrinho td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        #tabelaCarrinho th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            background-color: #ba0000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #444;
+        }
+
+        .btnCompra{
+            background-color: #1cba00;
+        }
+        .btnVitrine{
+            background-color: #003bba;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Carrinho de Compras</h1>
+    <table id="tabelaCarrinho">
+        <thead>
+            <tr>
+                <th>Número Sequência</th>
+                <th>Id do Produto</th>
+                <th>Nome do Produto</th>
+                <th>Valor Unitário</th>
+                <th>Quantidade</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tbodyCarrinho"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">Valor Total:</td>
+                <td id="valorTotal"></td>
+            </tr>
+        </tfoot>
+    </table>
+    <button onclick="finalizarCompra()" class="btnCompra">Finalizar Compra</button>
+    <button onclick="voltarParaVitrine()"  class="btnVitrine">Voltar para Vitrine da Loja</button>
+
+    <script>
+        let carrinho = [];
+        const carrinhoStorage = localStorage.getItem('carrinho');
+        if (carrinhoStorage) {
+            carrinho = JSON.parse(carrinhoStorage);
+        }
+
+        var tbody = document.querySelector('#tbodyCarrinho');
+        
+        carrinho.forEach(function (item, index) {
+            var tr = document.createElement('tr');
+
+            var tdNumero = document.createElement('td');
+            tdNumero.textContent = index + 1;
+            tr.appendChild(tdNumero);
+
+            var tdId = document.createElement('td');
+            tdId.textContent = index * 2;
+            tr.appendChild(tdId);
+
+            var tdNome = document.createElement('td');
+            tdNome.textContent = item.nome;
+            tr.appendChild(tdNome);
+
+            var tdValorUnitario = document.createElement('td');
+            tdValorUnitario.textContent = item.preco;
+            tr.appendChild(tdValorUnitario);
+
+            var quantidade = document.createElement('td');
+            quantidade.textContent = 1;
+            tr.appendChild(quantidade);
+
+            var tdRemover = document.createElement('td');
+            var buttonRemover = document.createElement('button');
+            buttonRemover.textContent = 'Remover Item';
+
+            buttonRemover.onclick = function () {
+                carrinho.splice(index, 1);
+                localStorage.setItem('Carrinho', JSON.stringify(carrinho));
+                tr.remove();
+            };
+
+            tdRemover.appendChild(buttonRemover);
+            tr.appendChild(tdRemover);
+            tbody.appendChild(tr);
+        });
+
+        // Calcular valor total
+        let valorTotal = 0;
+        carrinho.forEach(function (item) {
+            valorTotal += parseFloat(item.preco);
+        });
+        document.getElementById('valorTotal').textContent = `R$ ${valorTotal.toFixed(2)}`;
+
+        function finalizarCompra() {
+            var numeroCartao = prompt('Informe o número do cartão de crédito:');
+            var senha = prompt('Informe a senha:');
+            // Validação do cartão 
+            alert('Compra efetuada com sucesso');
+            localStorage.removeItem('carrinho');
+            //voltar a página de confirmação
+            window.location.href = 'confirmacao.html';
+        }
+
+        function voltarParaVitrine() {
+            // voltar a página virtual
+            window.location.href = 'lojaVirtual.html';
+        }
+    </script>
+</body>
+
+</html>

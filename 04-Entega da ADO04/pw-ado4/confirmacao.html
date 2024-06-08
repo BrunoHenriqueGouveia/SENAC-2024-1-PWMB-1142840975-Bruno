@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Compra</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .conteudo {
+            border: 1px solid black;
+            width: 400px;
+            padding: 40px;
+        }
+
+        button {
+            background-color: #54ba00;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #bceda2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conteudo">
+        <h1>Confirmação de Compra</h1>
+        <p>Obrigado por sua compra</p>
+
+        <button onclick="voltarParaVitrine()">Voltar para Vitrine</button>
+    </div>
+    <script>
+
+        function voltarParaVitrine() {
+            // voltar a página principal
+            window.location.href = 'lojaVirtual.html';
+        }
+    </script>
+</body>
+
+</html>
